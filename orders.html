@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make-oder</title>
+     <style>
+      
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+  }
+  
+  /* Header Styles */
+  
+  header {
+   
+    padding: 0px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0000001a;
+    
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  .nav li a:hover {
+    background-color: #6f1b1b;
+  }
+  nav ul li {
+    margin-right: 30px;
+    
+  }
+  
+  .logo img {
+    width: 60px;
+    height: 60px;
+    padding-left: 30px;
+    padding-top: 10px;
+  }
+ 
+  
+  /* .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .photo-card {
+    position: relative;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .photo-card img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .photo-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .photo-card:hover .overlay-text {
+    opacity: 1;
+  }
+  
+ 
+  .photo-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .photo-card:hover:before {
+    opacity: 1;
+  }
+  
+  
+  @media (max-width: 992px) {
+    .photo-card {
+      width: 45%;  
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .photo-card {
+      width: 100%;  
+    }
+  }
+   */
+
+  
+#menu {
+  background-color: #f9f9f9;
+  padding: 80px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.menu-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 40px;
+}
+
+.category {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.category img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.category img:hover {
+  transform: scale(1.1);
+}
+
+
+/* Today's Special Section Styles */
+
+#todays-special {
+  background-color: #f9f9f9;
+  padding:20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.special-items {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin-top: 40px;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+}
+
+.special-items::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.item {
+  flex: 0 0 300px;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.item p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+     </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+              <img src="mits-low-resolution-logo-color-on-transparent-background.png" alt="Logo">
+            </div>
+             
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="book.html"><b>Make Order</b></a></li>
+      
+            </ul>
+             
+          
+          <!-- <div class=" navv" id="navv">
+              <div onclick = "openMenu()"class="menu-icon"><i class="bi-list"></i></div>
+              <div class="nav-list">
+              
+                       <a href="#Home">Home</a>
+                     <a href="#about">About</a>
+                       <a href="#menu">Menu</a>
+                       <a href="book.html">Book Table</a>
+                       <a href="#Contact">Contact</a>
+                       
+                 
+              </div>
+              </div> -->
+          </nav>
+          
+        </header>
+ 
+ 
+ <!-- <section>
+  <div class="container">
+    <h1>Menu Categories</h1>
+    <div class="photo-gallery">
+      <a href="veg.html">
+        <div class="photo-card">
+          <img src="/images/img4.webp" alt="Veg Category">
+          <div class="overlay-text">Non-Veg</div>
+        </div>
+      </a>
+      <a href="non_veg.html">
+        <div class="photo-card">
+          <img src="/images/img6.jpg" alt="Non-Veg Category">
+          <div class="overlay-text">Veg</div>
+        </div>
+      </a>
+      <a href="veg.html">
+        <div class="photo-card">
+          <img src="/images/mk.webp" alt="Veg Category">
+          <div class="overlay-text">Mocktails</div>
+        </div>
+      </a>
+      <a href="non_veg.html">
+        <div class="photo-card">
+          <img src="/images/sp5.jpg" alt="Non-Veg Category">
+          <div class="overlay-text">Starbucks</div>
+        </div>
+      </a>
+      <a href="veg.html">
+        <div class="photo-card">
+          <img src="/images/sp6.jpg" alt="Veg Category">
+          <div class="overlay-text">Cakes</div>
+        </div>
+      </a>
+      <a href="non_veg.html">
+        <div class="photo-card">
+          <img src="/images/bf.jpg" alt="Non-Veg Category">
+          <div class="overlay-text">Breakfasr</div>
+        </div>
+      </a>
+      <a href="veg.html">
+        <div class="photo-card">
+          <img src="/images/img1.webp" alt="Veg Category">
+          <div class="overlay-text">Lunch</div>
+        </div>
+      </a>
+      <a href="non_veg.html">
+        <div class="photo-card">
+          <img src="/images/sp1.webp" alt="Non-Veg Category">
+          <div class="overlay-text">Dinner</div>
+        </div>
+      </a>
+      <a href="veg.html">
+        <div class="photo-card">
+          <img src="/images/sn.jpg" alt="Veg Category">
+          <div class="overlay-text">Snacks</div>
+        </div>
+      </a>
+      <a href="non_veg.html">
+        <div class="photo-card">
+          <img src="/images/sp4.webp" alt="Non-Veg Category">
+          <div class="overlay-text">Ice creams</div>
+        </div>
+      </a>
+    </div>
+  </div>
+ </section> -->
+
+ <section id="menu">
+  <div class="container">
+    <h2>Menu</h2>
+    <div class="menu-categories">
+      <div class="category">
+        <a href="menu.html"> <img src="img2.avif" alt="Category 1"></a>
+        <h3>Veg</h3>
+        <p>Description for veg category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="img4.webp" alt="Category 2"></a>
+        <h3>Non-Veg</h3>
+        <p>Description for non-veg category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="sn.jpg" alt="Category 3"></a>
+        <h3>Snacks</h3>
+        <p>Description for breakfast category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="bf.jpg" alt="Category 4"></a>
+        <h3>breakfast</h3>
+        <p>Description for lunch category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="lun.webp" alt="Category 5"></a>
+        <h3>Lunch</h3>
+        <p>Description for dinner category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="img6.jpg" alt="Category 6"></a>
+        <h3>Dinner</h3>
+        <p>Description for snacks category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="mk.webp" alt="Category 6"></a>
+        <h3>Mocktails</h3>
+        <p>Description for Mocktails category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="mkaa.webp" alt="Category 6"></a>
+        <h3>Mocktails(alochol)</h3>
+        <p>Description for Mocktails category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      <div class="category">
+        <a href="menu.html"><img src="sta.jpg" alt="Category 6"></a>
+        <h3>Mocktails</h3>
+        <p>Description for Mocktails category...</p>
+        <!-- Add more content as needed -->
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<section id="todays-special">
+  <div class="container">
+    <h2>Today's Special</h2>
+    <div class="special-items">
+      <div class="item">
+        <img src="/images/sp1.webp" alt="Special 1">
+        <h3>Chicken Biriyani</h3>
+        <!-- <p>Description for special item 1...</p> -->
+      </div>
+      <div class="item">
+        <img src="/images/mt.webp" alt="Special 2">
+        <h3>Mutton Biriyani</h3>
+        <!-- <p>Description for special item 2...</p> -->
+      </div>
+      <div class="item">
+        <img src="/images/sp3.webp" alt="Special 3">
+        <h3>Special Somosa</h3>
+        <!-- <p>Description for special item 3...</p> -->
+      </div>
+      <div class="item">
+        <img src="/images/sp4.webp" alt="Special 3">
+        <h3>Milk Shakes</h3>
+        <!-- <p>Description for special item 3...</p> -->
+      </div>
+      <div class="item">
+        <img src="/images/sp5.jpg" alt="Special 3">
+        <h3>StarBucks Special</h3>
+        <!-- <p>Description for special item 3...</p> -->
+      </div>
+      <div class="item">
+        <img src="/images/sp6.jpg" alt="Special 3">
+        <h3>Ice Cake</h3>
+        <!-- <p>Description for special item 3...</p> -->
+      </div>
+      <!-- Add more special items as needed -->
+    </div>
+  </div>
+</section>
+ 
+    
+</body>
+</html>

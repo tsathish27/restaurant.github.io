@@ -1,0 +1,310 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veg Menu - Restaurant</title>
+   <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  background:url(/images/vid2.mp4);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.veg-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.veg-item-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+.veg-item-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.veg-item-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.veg-item-card .description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.veg-item-card .price {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.veg-item-card .add-to-cart-btn {
+  background-color: #FF9800;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.veg-item-card .add-to-cart-btn:hover {
+  background-color: #F57C00;
+}
+
+.cart-container {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 300px;
+}
+
+.cart-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-items li {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.checkout-btn {
+  display: block;
+  width: 100%;
+  background-color: #FF9800;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #F57C00;
+}
+header {
+   
+   padding: 0px;
+ }
+ 
+ nav {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #0000001a;
+   
+ }
+ 
+ nav ul {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   align-items: center;
+ }
+ .nav li a:hover {
+   background-color: #6f1b1b;
+ }
+ nav ul li {
+   margin-right: 30px;
+   
+ }
+ 
+ .logo img {
+   width: 60px;
+   height: 60px;
+   padding-left: 30px;
+   padding-top: 10px;
+ }
+ a {
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+  }
+   </style>
+</head>
+<body>
+  <header>
+    <nav>
+        <div class="logo">
+          <img src="/images/mits-low-resolution-logo-color-on-transparent-background.png" alt="Logo">
+        </div>
+         
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="book.html"><b>Make Order</b></a></li>
+  
+        </ul>
+         
+      
+      <!-- <div class=" navv" id="navv">
+          <div onclick = "openMenu()"class="menu-icon"><i class="bi-list"></i></div>
+          <div class="nav-list">
+          
+                   <a href="#Home">Home</a>
+                 <a href="#about">About</a>
+                   <a href="#menu">Menu</a>
+                   <a href="book.html">Book Table</a>
+                   <a href="#Contact">Contact</a>
+                   
+             
+          </div>
+          </div> -->
+      </nav>
+      
+    </header>
+  
+  <div class="container">
+    <h1>Veg Menu</h1>
+    <div class="veg-items">
+      <!-- Veg item cards will be dynamically added here using JavaScript -->
+    </div>
+  </div>
+
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+    <ul class="cart-items">
+      <!-- Cart items will be dynamically added here using JavaScript -->
+    </ul>
+    <button class="checkout-btn">Proceed to Checkout</button>
+  </div>
+
+  <script>
+    // Sample data for veg items (replace this with your actual data)
+const vegItems = [
+  { name: "Veg Item 1", price: 10, image: "/images/img2.avif", description: "Delicious Veg Item 1" },
+  { name: "Veg Item 2", price: 12, image: "/images/lun.webp", description: "Tasty Veg Item 2" },
+  { name: "Veg Item 3", price: 8, image: "/images/img4.webp", description: "Yummy Veg Item 3" },
+  // Add more veg items here
+  { name: "Veg Item 1", price: 10, image: "/images/img2.avif", description: "Delicious Veg Item 1" },
+  { name: "Veg Item 2", price: 12, image: "/images/lun.webp", description: "Tasty Veg Item 2" },
+  { name: "Veg Item 3", price: 8, image: "/images/img4.webp", description: "Yummy Veg Item 3" },
+  // Add more veg items here
+  { name: "Veg Item 1", price: 10, image: "/images/img2.avif", description: "Delicious Veg Item 1" },
+  { name: "Veg Item 2", price: 12, image: "/images/lun.webp", description: "Tasty Veg Item 2" },
+  { name: "Veg Item 3", price: 8, image: "/images/img4.webp", description: "Yummy Veg Item 3" },
+  // Add more veg items here
+  { name: "Veg Item 1", price: 10, image: "/images/img2.avif", description: "Delicious Veg Item 1" },
+  { name: "Veg Item 2", price: 12, image: "/images/lun.webp", description: "Tasty Veg Item 2" },
+  { name: "Veg Item 3", price: 8, image: "/images/img4.webp", description: "Yummy Veg Item 3" },
+  // Add more veg items here
+];
+
+// Function to create a veg item card
+function createVegItemCard(item) {
+  const card = document.createElement("div");
+  card.classList.add("veg-item-card");
+  card.innerHTML = `
+    <img src="${item.image}" alt="${item.name}">
+    <h3>${item.name}</h3>
+    <p class="description">${item.description}</p>
+    <p class="price">$${item.price}</p>
+    <button class="add-to-cart-btn" onclick="addToCart('${item.name}', ${item.price})">Add to Cart</button>
+  `;
+  return card;
+}
+
+// Function to add veg item cards to the veg-items container
+function displayVegItems() {
+  const vegItemsContainer = document.querySelector(".veg-items");
+  vegItems.forEach(item => {
+    const card = createVegItemCard(item);
+    vegItemsContainer.appendChild(card);
+  });
+}
+
+// Function to add an item to the cart
+function addToCart(itemName, itemPrice) {
+  const cartItems = document.querySelector(".cart-items");
+  const cartItem = document.createElement("li");
+  cartItem.innerHTML = `
+    ${itemName} - $${itemPrice} x 1
+  `;
+  cartItems.appendChild(cartItem);
+}
+
+// Function to handle the "Proceed to Checkout" button
+function proceedToCheckout() {
+  // Replace this with your desired behavior when the user clicks "Proceed to Checkout"
+  alert("Proceeding to Checkout!");
+}
+
+// Display veg items and initialize the cart
+document.addEventListener("DOMContentLoaded", () => {
+  displayVegItems();
+
+  // Add event listener to "Proceed to Checkout" button
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  checkoutBtn.addEventListener("click", proceedToCheckout);
+});
+
+
+  </script>
+</body>
+</html> -->
+
+
+
+const menuData = [
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 2', price: 15, rating: 4.2, image: 'item2.jpg' },
+{ category: 'Non Veg', name: 'Item 3', price: 18, rating: 4.8, image: 'item3.jpg' },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "/images/img2.avif" },
+
+// ... add more items for different categories
+];

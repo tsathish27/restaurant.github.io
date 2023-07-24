@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+              body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* header {
+            background-color: #00000027;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        } */
+        header {
+            background-color: #00000027;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header:hover {
+            background-color: #00000060; /* Change the opacity on hover */
+            color: #fff; /* Change text color on hover */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin-right: 20px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        nav li:hover {
+            text-decoration: underline; /* Underline text on hover */
+            transition: text-decoration 0.3s ease;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .menu-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .menu-items {
+            flex: 70%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            
+        }
+
+        .menu-item {
+            width: 150px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 10px;
+        }
+
+        .menu-item h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .menu-item p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .menu-item .add-to-cart {
+            background-color:#FF9800;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 3px;
+        }
+
+        .menu-item .add-to-cart:hover {
+            background-color: #555;
+        }
+
+        .cart {
+            flex: 30%;
+            background: rgb(255, 255, 255);
+            padding: 20px;
+            border: 1px soid rgba(233, 229, 229, 0.695);
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            stroke: black;
+            flex-wrap: wrap;
+            height: 40%;
+        }
+
+        .cart h2 {
+            margin-top: 0;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .cart-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 40%;
+            align-items: center;
+        }
+
+        .cart-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .total-amount {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .place-order-btn {
+            background-color: #b60d0d;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 3px;
+        }
+
+        .place-order-btn:hover {
+            background-color: #43a111;
+        }
+  /* Modal styles */
+  .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style for "Order Successful. Thank You!" message */
+        .order-success-message {
+            display: none;
+            font-weight: bold;
+            font-size: 24px;
+            text-align: center;
+            color: green;
+            margin-top:50%;
+        }
+.modal {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left:25%;
+  width:50%;
+  height:50%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content .total-amount {
+  margin-bottom: 10px;
+}
+
+.modal-content .confirm-order-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 3px;
+}
+
+.modal-content .confirm-order-btn:hover {
+  background-color: #555;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="category" data-category="Veg">Veg</li>
+                <li class="category" data-category="Non Veg">Non Veg</li>
+                <li class="category" data-category="Breakfast">Breakfast</li>
+                <li class="category" data-category="Lunch">Lunch</li>
+                <li class="category" data-category="Dinner">Dinner</li>
+                <li class="category" data-category="Snacks">Snacks</li>
+                <li class="category" data-category="Starbucks">Starbucks</li>
+                <li class="category" data-category="Ice Cream">Ice Cream</li>
+                <li class="category" data-category="Mocktail">Mocktail</li>
+                <li class="category" data-category="Mocktail (Wine)">Mocktail (Wine)</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="menu-container">
+        <div class="cart">
+            <h2>My Cart</h2>
+            <ul id="cart-items"></ul>
+            <p class="total-amount">Total: $0</p>
+            <button class="place-order-btn">Place Order</button>
+        </div>
+        <div class="menu-items" id="menu-items">
+            <!-- Placeholder for menu items -->
+        </div>
+    </div>
+
+       <!-- Modal -->
+       <div class="modal" id="invoiceModal">
+        <div class="modal-content">
+            <h2>Invoice</h2>
+            <ul id="invoice-items"></ul>
+            <p class="total-amount" id="invoiceTotal">Total: $0</p>
+            <button class="confirm-order-btn" id="confirmOrderBtn">Confirm Order</button>
+            <p class="order-success-message">Order Successful. Thank You!</p>
+        </div>
+    </div>
+
+    <script>
+        const menuData = [
+{ category: 'Veg', name: 'Item 2', price: 15, rating: 4.2, image: "bf1.jpg" },
+{ category: 'Veg', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "bf3.jpeg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "bf4.jpg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "bf6.jpg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "bf9.jpg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "bf8.jpg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "lun3.jpg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "st6.jpg" },
+{ category: 'Veg', name: 'Item 1', price: 10, rating: 4.5, image: "lun5.jpg" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Non Veg', name: 'Item 1', price: 10, rating: 4.5, image: "img2.avif" },
+{ category: 'Breakfast', name: 'Item 2', price: 15, rating: 4.2, image: "bf1.jpg" },
+{ category: 'Breakfast', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Breakfast', name: 'Item 1', price: 10, rating: 4.5, image: "bf3.jpeg" },
+{ category: 'Breakfast', name: 'Item 1', price: 10, rating: 4.5, image: "bf4.jpg" },
+{ category: 'Breakfast', name: 'Item 1', price: 10, rating: 4.5, image: "bf6.jpg" },
+{ category: 'Breakfast', name: 'Item 1', price: 10, rating: 4.5, image: "bf9.jpg" },
+{ category: 'Breakfast', name: 'Item 1', price: 10, rating: 4.5, image: "bf8.jpg" },
+{ category: 'Breakfast', name: 'Item 1', price: 10, rating: 4.5, image: "bf10.jpg" },
+{ category: 'Lunch', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Lunch', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Lunch', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Lunch', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Lunch', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Lunch', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Lunch', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+{ category: 'Dinner', name: 'Item 3', price: 18, rating: 4.8, image:"bf2.jpg" },
+
+       
+
+];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItemsContainer = document.getElementById('menu-items');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const totalAmountDisplay = document.querySelector('.total-amount');
+            const placeOrderButton = document.querySelector('.place-order-btn');
+            const modal = document.getElementById('invoiceModal');
+            const confirmOrderButton = document.getElementById('confirmOrderBtn');
+
+            // Function to render menu items
+            function renderMenuItems(items) {
+                menuItemsContainer.innerHTML = '';
+
+                for (const item of items) {
+                    const menuItem = document.createElement('div');
+                    menuItem.classList.add('menu-item');
+
+                    menuItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <h3>${item.name}</h3>
+                        <p>Price: $${item.price}</p>
+                        <button class="add-to-cart" data-name="${item.name}" data-price="${item.price}">Add to Cart</button>
+                        <p>Rating: ${item.rating}</p>
+                    `;
+
+                    menuItemsContainer.appendChild(menuItem);
+                }
+            }
+
+            // Function to update the total amount in the cart
+            function updateTotalAmount() {
+                const cartItems = document.querySelectorAll('.cart-item');
+                let totalAmount = 0;
+
+                cartItems.forEach(cartItem => {
+                    const price = parseFloat(cartItem.dataset.price);
+                    totalAmount += price;
+                });
+
+                totalAmountDisplay.textContent = `Total: $${totalAmount.toFixed(2)}`;
+            }
+
+            // Event listener for "Veg" category click
+            const vegCategory = document.querySelector('li[data-category="Veg"]');
+            vegCategory.addEventListener('click', () => {
+                const vegItems = menuData.filter(item => item.category === 'Veg');
+                renderMenuItems(vegItems);
+            });
+
+            // Event listener for "Non Veg" category click
+            const nonVegCategory = document.querySelector('li[data-category="Non Veg"]');
+            nonVegCategory.addEventListener('click', () => {
+                const nonVegItems = menuData.filter(item => item.category === 'Non Veg');
+                renderMenuItems(nonVegItems);
+            });
+
+            const BfCategory = document.querySelector('li[data-category="Breakfast"]');
+            BfCategory.addEventListener('click', () => {
+                const BfItems = menuData.filter(item => item.category === 'Breakfast');
+                renderMenuItems(BfItems);
+            });
+
+            const LunCategory = document.querySelector('li[data-category="Lunch"]');
+            LunCategory.addEventListener('click', () => {
+                const LunItems = menuData.filter(item => item.category === 'Lunch');
+                renderMenuItems(LunItems);
+            });
+
+            const DinCategory = document.querySelector('li[data-category="Dinner"]');
+            DinCategory.addEventListener('click', () => {
+                const DinItems = menuData.filter(item => item.category === 'Dinner');
+                renderMenuItems(DinItems);
+            });
+            const SnacksCategory = document.querySelector('li[data-category="Snacks"]');
+            SnacksCategory.addEventListener('click', () => {
+                const SnItems = menuData.filter(item => item.category === 'Snacks');
+                renderMenuItems(SnItems);
+            });
+            const StrCategory = document.querySelector('li[data-category="Starbucks"]');
+            StrCategory.addEventListener('click', () => {
+                const StrItems = menuData.filter(item => item.category === 'Starbucks');
+                renderMenuItems(StrItems);
+            });
+            const IceCategory = document.querySelector('li[data-category="Ice Cream"]');
+            IceCategory.addEventListener('click', () => {
+                const IceItems = menuData.filter(item => item.category === 'Ice Cream');
+                renderMenuItems(IceItems);
+            });
+            const MwCategory = document.querySelector('li[data-category="Mocktail (Wine)"]');
+            MwCategory.addEventListener('click', () => {
+                const MwItems = menuData.filter(item => item.category === 'Mocktail (Wine)');
+                renderMenuItems(MwItems);
+            });
+            const MkCategory = document.querySelector('li[data-category="Mocktail"]');
+            MkCategory.addEventListener('click', () => {
+                const MkItems = menuData.filter(item => item.category === 'Mocktail');
+                renderMenuItems(MkItems);
+            });
+
+
+            // Event listener for "Add to Cart" button click
+            menuItemsContainer.addEventListener('click', (event) => {
+                if (event.target.classList.contains('add-to-cart')) {
+                    const itemName = event.target.dataset.name;
+                    const itemPrice = parseFloat(event.target.dataset.price);
+
+                    const cartItem = document.createElement('li');
+                    cartItem.classList.add('cart-item');
+                    cartItem.textContent = `${itemName} - $${itemPrice}`;
+                    cartItem.dataset.price = itemPrice;
+
+                    cartItemsContainer.appendChild(cartItem);
+
+                    // Update the total amount in the cart
+                    updateTotalAmount();
+                }
+            });
+
+            // Event listener for "Place Order" button click
+            placeOrderButton.addEventListener('click', () => {
+                // Create the invoice content
+                const cartItems = document.querySelectorAll('.cart-item');
+                let invoiceContent = '';
+                let totalAmount = 0;
+
+                cartItems.forEach(cartItem => {
+                    const itemName = cartItem.textContent.split(' - ')[0];
+                    const itemPrice = parseFloat(cartItem.dataset.price);
+
+                    invoiceContent += `<li>${itemName} - $${itemPrice.toFixed(2)}</li>`;
+                    totalAmount += itemPrice;
+                });
+
+                // Display the invoice content in the modal
+                const invoiceItemsList = document.getElementById('invoice-items');
+                const invoiceTotal = document.getElementById('invoiceTotal');
+
+                invoiceItemsList.innerHTML = invoiceContent;
+                invoiceTotal.textContent = `Total: $${totalAmount.toFixed(2)}`;
+
+                // Show the modal
+                modal.style.display = 'block';
+            });
+
+            // Event listener for "Confirm Order" button in the modal
+            confirmOrderButton.addEventListener('click', () => {
+                // Hide the modal
+                modal.style.display = 'none';
+
+                // Display the "Order Successful. Thank You!" message
+                const successMessage = document.createElement('p');
+                successMessage.textContent = 'Order Successful. Thank You!';
+                successMessage.style.color = 'green';
+                successMessage.style.fontWeight = 'bold';
+                successMessage.style.fontSize = '24px';
+                successMessage.style.textAlign = 'center';
+                menuItemsContainer.appendChild(successMessage);
+
+                // Clear the cart and total amount display
+                cartItemsContainer.innerHTML = '';
+                totalAmountDisplay.textContent = 'Total: $0';
+
+            const orderSuccessMessage = document.querySelector('.order-success-message');
+            orderSuccessMessage.style.display = 'block';
+            confirmOrderButton.style.display = 'none';
+            });
+
+            // Initial rendering
+            renderMenuItems(menuData.filter(item => item.category === 'Veg'));
+        });
+    </script>
+</body>
+</html>
+
+
+
+
